@@ -12,7 +12,7 @@ macro(add_bigfix_executable name)
   add_executable(${name} ${BIGFIX_SOURCES})
 endmacro()
 
-# Create a shared static library
+# Create a static library of bigfix code
 
 macro(add_bigfix_library name)
   project(${name})
