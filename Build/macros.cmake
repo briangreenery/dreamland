@@ -22,6 +22,21 @@ macro(add_bigfix_library name)
   target_include_directories(${name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 endmacro()
 
+# Add a test suite
+
+macro(add_bigfix_test_suite name)
+  set(testName ${name}Test)
+  project(${testName})
+  set(BIGFIX_PROJECT_NAME ${testName})
+  add_executable(${testName} ${BIGFIX_SOURCES})
+  target_link_libraries(${testName} PRIVATE gtest gtest_main)
+  target_include_directories(
+    ${testName}
+    PRIVATE
+    ${CMAKE_SOURCE_DIR}/External/gtest-1.7.0/include
+  )
+endmacro()
+
 # Add a dependency on a bigfix library
 
 macro(add_bigfix_library_dependencies)
