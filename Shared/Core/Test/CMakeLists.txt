@@ -1,4 +1,5 @@
 add_bigfix_sources(
+  Core/Data/ConstDataTest.cpp
   Core/IntegersTest.cpp
 )
 
