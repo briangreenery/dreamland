@@ -35,6 +35,8 @@ macro(add_bigfix_test_suite name)
     PRIVATE
     ${CMAKE_SOURCE_DIR}/External/gtest-1.7.0/include
   )
+  set_target_properties(${testName} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY})
 endmacro()
 
 # Add a dependency on a bigfix library
