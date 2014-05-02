@@ -30,11 +30,6 @@ macro(add_bigfix_test_suite name)
   set(BIGFIX_PROJECT_NAME ${testName})
   add_executable(${testName} ${BIGFIX_SOURCES})
   target_link_libraries(${testName} PRIVATE gtest gtest_main)
-  target_include_directories(
-    ${testName}
-    PRIVATE
-    ${CMAKE_SOURCE_DIR}/External/gtest-1.7.0/include
-  )
   set_target_properties(${testName} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY})
 endmacro()
