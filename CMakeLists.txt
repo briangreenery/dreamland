@@ -11,6 +11,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 # Output tests in the 'test' directory
 set(TEST_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 
+# Create a 'test' target
+add_custom_target(test)
+
 add_subdirectory(Applications)
 add_subdirectory(External)
 add_subdirectory(Shared)

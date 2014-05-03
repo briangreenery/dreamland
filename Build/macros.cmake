@@ -28,10 +28,20 @@ macro(add_bigfix_test_suite name)
   set(testName ${name}Test)
   project(${testName})
   set(BIGFIX_PROJECT_NAME ${testName})
-  add_executable(${testName} ${BIGFIX_SOURCES})
+
+  # Build the test executable
+  add_executable(${testName} EXCLUDE_FROM_ALL ${BIGFIX_SOURCES})
   target_link_libraries(${testName} PRIVATE gtest gtest_main)
   set_target_properties(${testName} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY})
+
+  # Run the test executable
+  set(runTestName Run${testName})
+  add_custom_target(${runTestName} COMMAND ${testName})
+  add_dependencies(${runTestName} ${testName})
+
+  # Add the test run to the 'test' target
+  add_dependencies(test ${runTestName})
 endmacro()
 
 # Add a dependency on a bigfix library

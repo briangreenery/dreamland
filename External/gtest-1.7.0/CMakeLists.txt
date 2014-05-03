@@ -1,5 +1,5 @@
 project(gtest)
-add_library(gtest STATIC src/gtest-all.cc)
+add_library(gtest STATIC EXCLUDE_FROM_ALL src/gtest-all.cc)
 target_include_directories(gtest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(gtest PUBLIC include)
 
@@ -16,5 +16,5 @@ if (MSVC AND MSVC_VERSION EQUAL 1700)
 endif()
 
 project(gtest_main)
-add_library(gtest_main STATIC src/gtest_main.cc)
+add_library(gtest_main STATIC EXCLUDE_FROM_ALL src/gtest_main.cc)
 target_link_libraries(gtest_main gtest)
