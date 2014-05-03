@@ -1,5 +1,5 @@
 add_bigfix_sources(
-  Time/NowTest.cpp
+  NowTest.cpp
 )
 
 add_bigfix_test_suite(Time)

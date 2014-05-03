@@ -1,6 +1,6 @@
 add_bigfix_sources(
-  Core/Data/ConstDataTest.cpp
-  Core/IntegersTest.cpp
+  Data/ConstDataTest.cpp
+  IntegersTest.cpp
 )
 
 add_bigfix_test_suite(Core)
