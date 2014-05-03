@@ -14,6 +14,9 @@ set(TEST_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 # Create a 'test' target
 add_custom_target(test)
 
+# Turn on the use of folders in Visual Studio
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 add_subdirectory(Applications)
 add_subdirectory(External)
 add_subdirectory(Shared)

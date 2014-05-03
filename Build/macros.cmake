@@ -11,6 +11,7 @@ macro(add_bigfix_executable name)
   set(BIGFIX_PROJECT_NAME ${name})
   add_executable(${name} ${BIGFIX_SOURCES})
   target_include_directories(${name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+  set_target_properties(${name} PROPERTIES FOLDER Applications)
 endmacro()
 
 # Create a static library of bigfix code
@@ -20,6 +21,7 @@ macro(add_bigfix_library name)
   set(BIGFIX_PROJECT_NAME ${name})
   add_library(${name} STATIC ${BIGFIX_SOURCES})
   target_include_directories(${name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+  set_target_properties(${name} PROPERTIES FOLDER Shared)
 endmacro()
 
 # Add a test suite
@@ -42,6 +44,10 @@ macro(add_bigfix_test_suite name)
 
   # Add the test run to the 'test' target
   add_dependencies(test ${runTestName})
+
+  # Put the build and run projects in the 'Tests' folder in Visual Studio
+  set_target_properties(${testName} PROPERTIES FOLDER Tests)
+  set_target_properties(${runTestName} PROPERTIES FOLDER Tests)
 endmacro()
 
 # Add a dependency on a bigfix library

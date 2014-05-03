@@ -2,6 +2,7 @@ project(gtest)
 add_library(gtest STATIC EXCLUDE_FROM_ALL src/gtest-all.cc)
 target_include_directories(gtest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(gtest PUBLIC include)
+set_target_properties(gtest PROPERTIES FOLDER External)
 
 target_compile_definitions(gtest PUBLIC -DGTEST_HAS_PTHREAD=0)
 
@@ -18,3 +19,4 @@ endif()
 project(gtest_main)
 add_library(gtest_main STATIC EXCLUDE_FROM_ALL src/gtest_main.cc)
 target_link_libraries(gtest_main gtest)
+set_target_properties(gtest_main PROPERTIES FOLDER External)
