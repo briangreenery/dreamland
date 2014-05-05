@@ -1,7 +1,9 @@
-add_bigfix_sources(
+add_bigfix_test_suite(CoreTest
+
+  SOURCES
   Data/ConstDataTest.cpp
   IntegersTest.cpp
-)
 
-add_bigfix_test_suite(Core)
-add_bigfix_library_dependencies(Core)
+  DEPENDS
+  Core
+)

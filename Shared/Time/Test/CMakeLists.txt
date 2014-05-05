@@ -1,6 +1,8 @@
-add_bigfix_sources(
-  NowTest.cpp
-)
+add_bigfix_test_suite(TimeTest
 
-add_bigfix_test_suite(Time)
-add_bigfix_library_dependencies(Time)
+  SOURCES
+  NowTest.cpp
+
+  DEPENDS
+  Time
+)

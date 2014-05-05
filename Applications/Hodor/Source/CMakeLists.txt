@@ -1,7 +1,9 @@
-add_bigfix_sources(
+add_bigfix_executable(Hodor
+
+  SOURCES
   Hodor/main.cpp
   Hodor/PrintTime.cpp
-)
 
-add_bigfix_executable(Hodor)
-add_bigfix_library_dependencies(Time)
+  DEPENDS
+  Time
+)
